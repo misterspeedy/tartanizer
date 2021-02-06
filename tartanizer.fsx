@@ -228,6 +228,23 @@ module Tartan =
 
 let savePath = @"c:\temp\Tartans"
 
+// Example from https://en.wikipedia.org/wiki/Tartan
+module WikipediaExample =
+
+    let threadCount = Sett.tryParse "K4 R24 K24 Y4"
+    let pixelsPerThread = 4
+    let bitMap =
+        threadCount 
+        |> Result.map (fun tc ->
+            let size = (tc |> Sett.width) * pixelsPerThread
+            Tartan.create size size 0.9 Symmetrical tc)
+        |> Result.map (Tartan.asBitMap pixelsPerThread)
+    match bitMap with
+    | Ok b ->
+        b.Save(System.IO.Path.Join(savePath,  "example.png"))
+    | Error e ->
+        printfn "%s" e
+
 /// A tribute to Jackie Weaver.
 module JackieWeaver = 
 
