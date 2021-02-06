@@ -10,4 +10,6 @@ For example "K4 R24 K24 Y4" corresponds to 4 black threads, 24 red threads, 24 b
 - Standard X11 color names - e.g. "Black4 Red24 Black24 Yellow24"
 - Hex RGB values - e.g. "#000000#4 #FF0000#4 #000000#24 #FFFF00#4
 
+![Alt text](example.png?raw=true "Example")
+
 See the examples at the bottom of the script for usage of the thread count parser and renderer.
